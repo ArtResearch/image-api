@@ -1,0 +1,7 @@
+@prefix image-api: <https://artresearch.net/image-api/>.
+
+<{image_url}> image-api:identifier "{hashed_url}" ;
+    {thumbnail_path}
+    image-api:date-processed "{date_processed}"^^xsd:dateTime ;
+    image-api:status-code <http://www.w3.org/2011/http-statusCodes#{http_status_code}> ;
+    {error_description}

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  image-processing-api:
+    container_name: image-api-processor 
+    build: ./image-processing-api
+    ports:
+      - "8005:8000"
+    volumes:
+      - ./data:/usr/src/app/data
+      - ./image-data:/usr/src/app/image-data
+    environment:
+      - THUMBNAIL_BASE_URL=https://artresearch.net/assets/images/
