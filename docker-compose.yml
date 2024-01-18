@@ -6,7 +6,7 @@ services:
     ports:
       - "8005:8000"
     volumes:
-      - ./data:/usr/src/app/data
-      - ./image-data:/usr/src/app/image-data
+      - ./data:/usr/src/app/data/:ro
+      - ./image-data:/usr/src/app/image-data/:rw
     environment:
       - THUMBNAIL_BASE_URL=https://artresearch.net/assets/images/

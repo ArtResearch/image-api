@@ -1,0 +1,5 @@
+<https://ids.lib.harvard.edu/ids/iiif/493343224/full/full/0/default.jpg> <https://artresearch.net/image-api/image-api:identifier> "aHR0cHM6Ly9pZHMubGliLmhhcnZhcmQuZWR1L2lkcy9paWlmLzQ5MzM0MzIyNC9mdWxsL2Z1bGwvMC9kZWZhdWx0LmpwZw" .
+<https://ids.lib.harvard.edu/ids/iiif/493343224/full/full/0/default.jpg> <https://artresearch.net/image-api/image-api:thumbnail> <https://artresearch.net/assets/images/200px/aHR0cHM6Ly9pZHMubGliLmhhcnZhcmQuZWR1L2lkcy9paWlmLzQ5MzM0MzIyNC9mdWxsL2Z1bGwvMC9kZWZhdWx0LmpwZw.jpg> .
+<https://ids.lib.harvard.edu/ids/iiif/493343224/full/full/0/default.jpg> <https://artresearch.net/image-api/image-api:date-processed> "2024-01-18T10:30:48"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://ids.lib.harvard.edu/ids/iiif/493343224/full/full/0/default.jpg> <https://artresearch.net/image-api/image-api:status-code> <http://www.w3.org/2011/http-statusCodes#200> .
+

@@ -16,15 +16,14 @@
    - Generates a 1000px wide JPG derivative, stored in a directory named "1000px".
 
 4. **RDF Data File Generation**:
-   - Produces a Turtle (TTL) formatted RDF file, named using a hash of the image URL (e.g., `abcd1234.ttl`).
+   - Produces an RDF file (NT), named using a hash of the image URL (e.g., `abcd1234.nt`).
    - The RDF file contains metadata about when the image was downloaded and any HTTP status codes. It is saved in a directory called "image-RDF-data".
 
 ## RDF Data Model
 
-Utilizes a static file `image-data-model.ttl` to determine the output data model.
+Utilizes a static file `image-data-model.nt` to determine the output data model.
 
-
-
+Here is a sample output in TTL:
 ```
 @prefix image-api: <https://artresearch.net/image-api/>.
 
@@ -38,4 +37,4 @@ Utilizes a static file `image-data-model.ttl` to determine the output data model
 ## Directory Structure
 
 - `originals`, `200px`, `1000px`, `image-RDF-data`: Directories within `/image-data` for storing processed images and data.
-- `image-data-model.ttl`: Located in the `/data` directory.
+- `image-data-model.nt`: Located in the `/data` directory.

@@ -23,7 +23,7 @@ os.makedirs("image-data/image-RDF-data", exist_ok=True)
 async def process_image(image_data: ImageUrl):
     image_url = image_data.image_url
     hashed_url = compress_url(image_url)
-    date_processed = datetime.now().isoformat()
+    date_processed = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
     error_description = ""
     thumbnail_path = ""
 
@@ -43,7 +43,7 @@ async def process_image(image_data: ImageUrl):
                 thumbnail.save(f"image-data/{folder}/{hashed_url}.jpg")
             
             thumbnail_base_url = os.getenv('THUMBNAIL_BASE_URL', 'default/base/url/if/not/set/in/env')
-            thumbnail_path = f"image-api:thumbnail <{thumbnail_base_url}200px/{hashed_url}.jpg> ;"
+            thumbnail_path = f"<{image_url}> <https://artresearch.net/image-api/image-api:thumbnail> <{thumbnail_base_url}200px/{hashed_url}.jpg> ."
 
         else:
             error_description = f"Error in downloading image: HTTP status {http_status_code}. {response.reason}"
@@ -53,15 +53,15 @@ async def process_image(image_data: ImageUrl):
         error_description = f"Request Exception: {str(e)}"
 
     # Generate RDF file
-    rdf_error_line = f"image-api:error-description \"{error_description}\" ;" if error_description else ""
-    with open("app/data/image-data-model.ttl", "r") as model_file:
+    rdf_error_line = f"<{image_url}> <https://artresearch.net/image-api/image-api:error-description> \"{error_description}\" ." if error_description else ""
+    with open("data/image-data-model.nt", "r") as model_file:
         rdf_template = model_file.read()
 
     rdf_content = rdf_template.format(image_url=image_url, hashed_url=hashed_url, 
                                       date_processed=date_processed, http_status_code=http_status_code,
                                       thumbnail_path=thumbnail_path, error_description=rdf_error_line)
 
-    with open(f"image-data/image-RDF-data/{hashed_url}.ttl", "w") as rdf_file:
+    with open(f"image-data/image-RDF-data/{hashed_url}.nt", "w") as rdf_file:
         rdf_file.write(rdf_content)
 
     if error_description:

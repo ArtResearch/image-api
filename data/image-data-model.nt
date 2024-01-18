@@ -1,0 +1,5 @@
+<{image_url}> <https://artresearch.net/image-api/image-api:identifier> "{hashed_url}" .
+{thumbnail_path}
+<{image_url}> <https://artresearch.net/image-api/image-api:date-processed> "{date_processed}"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<{image_url}> <https://artresearch.net/image-api/image-api:status-code> <http://www.w3.org/2011/http-statusCodes#{http_status_code}> .
+{error_description}
